@@ -1,14 +1,29 @@
 # Importando o Flask
-from flask import Flask
+from flask import Flask, render_template
 
 # Carregando o Flask na variavel app
-app = Flask(__name__)
+app = Flask(__name__, template_folder='views')
 
 # Criando a primeira rota do site
 @app.route('/')
 # Criando função no Python
 def home():
-    return '<h1>Bem-vindo ao meu primeiro site em Flask!</h1>'
+    return render_template('index.html')
+
+#Rota de games
+@app.route('/games')
+def games():
+    titulo = 'CS-GO'
+    ano = 2012
+    categoria = 'FPS Online'
+    jogadores = ['Miguel José', 'Miguel Isack', 'Leaf', 'Quemario', 'Trop', 'Aspax', 'maxxdiego']
+    jogos= ['EA Sports 2025', 'Cuphead', 'Doom Eternal', 'Minecraft', 'Fallout 4']
+    return render_template('games.html',
+                           titulo=titulo,
+                           ano=ano,
+                           categoria=categoria,
+                           jogadores=jogadores,
+                           jogos=jogos)
 
 # Iniciando o servidor no localhost, porta 5000, modo de depuração ativado
 if __name__ == '__main__':
