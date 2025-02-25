@@ -13,15 +13,16 @@ def home():
 #Rota de games
 @app.route('/games')
 def games():
-    titulo = 'CS-GO'
-    ano = 2012
-    categoria = 'FPS Online'
+    # Dicionario em Python (Objeto)
+    game = {
+        'Titulo': 'CS-GO',
+        'Ano': 2012,
+        'Categoria': 'FPS Online'
+    }
     jogadores = ['Miguel José', 'Miguel Isack', 'Leaf', 'Quemario', 'Trop', 'Aspax', 'maxxdiego']
     jogos= ['EA Sports 2025', 'Cuphead', 'Doom Eternal', 'Minecraft', 'Fallout 4']
     return render_template('games.html',
-                           titulo=titulo,
-                           ano=ano,
-                           categoria=categoria,
+                           game=game,
                            jogadores=jogadores,
                            jogos=jogos)
 
