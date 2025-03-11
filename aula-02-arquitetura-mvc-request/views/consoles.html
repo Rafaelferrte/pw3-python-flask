@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Consoles</title>
+</head>
+<body>
+    <h2>Cadastro de Consoles</h2>
+    <hr>
+    <form action="{{url_for('consoles')}}" method="POST">
+        <label for="">Nome:</label>
+        <input type="text" name="nome" required>
+        <label for="">Fabricante:</label>
+        <input type="text" name="fabricante" required>
+        <label for="">Ano:</label>
+        <input type="text" name="ano" required>
+        <label for="">Preço:</label>
+        <input type="text" name="preco" required>
+        
+        <input type="submit" value="Cadastrar">
+    </form>
+    <br>
+    <hr>
+
+    <h4>Games cadastrados: </h4>
+    {% for console in consolelist %}
+    Nome: <strong>{{console.Nome}}</strong><br>
+    Fabricante: <strong>{{console.Fabricante}}</strong><br>
+    Ano: <strong>{{console.Ano}}</strong><br>
+    Preço: <strong>{{console.Preço}}</strong><br><br>
+    {% endfor %}
+</body>
+</html>
