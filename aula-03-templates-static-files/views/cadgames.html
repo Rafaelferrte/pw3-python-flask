@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <title>Cadastro de Games</title>
+</head>
+
+<body>
+    <header>
+        <h2 class="titulo">Cadastro de Games</h2>
+
+    </header>
+    <hr>
+    <section>
+
+        <form action="{{url_for('cadgames')}}" method="POST">
+            <div>
+                <label for="">Título:</label>
+                <input type="text" name="titulo" required class="input">
+                <label for="">Ano:</label>
+                <input type="text" name="ano" required class="input">
+                <label for="">Categoria:</label>
+                <input type="text" name="categoria" required class="input">
+                <input type="submit" value="Cadastrar">
+            </div>
+        </form>
+        <br>
+        <hr>
+
+        <h4>Games cadastrados: </h4>
+        {% for game in gamelist %}
+        Título: <strong>{{game.Titulo}}</strong><br>
+        Ano: <strong>{{game.Ano}}</strong><br>
+        Categoria: <strong>{{game.Categoria}}</strong><br><br>
+        {% endfor %}
+
+        <img src="../static/imgs/image.png"
+            alt="" width="200px">
+    </section>
+    <hr>
+
+    <footer>Todos os direitos reservados</footer>
+</body>
+
+</html>
