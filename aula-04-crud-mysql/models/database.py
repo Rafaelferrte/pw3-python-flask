@@ -21,3 +21,19 @@ def __init__(self, titulo, ano, categoria, plataforma, preco, quantidade):
     self.plataforma = plataforma
     self.preco = preco
     self.quantidade = quantidade
+ 
+ # Model Console   
+class Console(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    nome = db.Column(db.String(150))
+    fabricante = db.Column(db.String(150))
+    preco = db.Column(db.Float)
+    quantidade = db.Column(db.Integer)
+    
+ # Metodo Console
+def __init__(self, nome, fabricante, preco, quantidade):
+    self.nome = nome
+    self.fabricante = fabricante
+    self.preco = preco
+    self.quantidade = quantidade
+    
