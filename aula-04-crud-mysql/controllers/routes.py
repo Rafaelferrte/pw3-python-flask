@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for
 from models.database import Game
-from models.database import Console
+from models.database import Console, db
 
 # Lista de jogadores
 jogadores = ['Miguel José', 'Miguel Isack', 'Leaf',
@@ -48,14 +48,64 @@ def init_app(app):
                                gamelist=gamelist)
         
     # Rota de ESTOQUE (CRUD)
-    @app.route('/estoque')
-    def estoque():
+    @app.route('/estoque', methods=['GET', 'POST'])
+    @app.route('/estoque/<int:id>')
+    def estoque(id=None):
+        # Verificando se foi enviado alguma ID
+        if id:
+            # Buscando o jogo pela ID
+            game = Game.query.get(id)
+            # Deletando o jogo
+            db.session.delete(game)
+            db.session.commit()
+            return redirect(url_for('estoque'))
+    
+        
+        #Verificando se a requisição é POST
+        if request.method == 'POST':
+            # Cadastra novo jogo
+            newgame = Game(request.form['titulo'], request.form['ano'], request.form['categoria'], request.form['plataforma'], request.form['preco'], request.form['quantidade'])
+            # Enviando para o banco
+            db.session.add(newgame)
+            # Confirmando as alterações
+            db.session.commit()
+            return redirect(url_for('estoque'))
+        
         # Fazendo um select no banco (pegando todos os jogos da tabela)
         gamesestoque = Game.query.all()
-        consolesestoque = Console.query.all()
         return render_template('estoque.html',
                                gamesestoque=gamesestoque,
-                               consoleestoque=consolesestoque
+                        
                                )
         
+    @app.route('/estoqueconsoles', methods=['GET', 'POST'])
+    @app.route('/estoqueconsoles/<int:id>')
+    def estoqueconsoles(id=None):
+    # Verificando se foi enviado alguma ID
+
+        if id:
+            # Buscando o jogo pela ID
+            console = Console.query.get(id)
+            # Deletando o jogo
+            db.session.delete(console)
+            db.session.commit()
+            return redirect(url_for('estoqueconsoles'))
+
+        # Verificando se a requisição é POST
+        if request.method == 'POST':
+            # Cadastra novo jogo
+            newconsole = Console(request.form['nome'], request.form['fabricante'], 
+                        request.form['preco'], request.form['quantidade'])
+            # Enviando para o banco
+            db.session.add(newconsole)
+            # Confirmando as alterações
+            db.session.commit()
+            return redirect(url_for('estoqueconsoles'))
+
+        # Fazendo um select no banco (pegando todos os jogos da tabela)
+        consolesestoque = Console.query.all()
+        return render_template('estoqueconsoles.html',
+                            consolesestoque=consolesestoque
+                            )
+            
     
