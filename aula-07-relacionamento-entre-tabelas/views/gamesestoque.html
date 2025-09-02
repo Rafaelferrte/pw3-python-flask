@@ -10,6 +10,15 @@
                     <input type="text" name="categoria" placeholder="Categoria" class="form-control" required>
                     <input type="number" name="preco" placeholder="Preço" min=0 step="0.01" class="form-control" required>
                     <input type="number" name="quantidade" placeholder="Quantidade" class="form-control" required>
+
+                    <!-- Select com a lista de consoles -->
+                    <Select name="console" class="form-select" required>
+                        <option value="" selected disabled>Selecione um console...</option>
+
+                        {% for console in consoles %}
+                            <option value="{{console.id}}">{{console.nome}}</option>
+                        {% endfor %}
+                    </Select>
                     <br>
 
                     <input type="submit" value="Cadastrar" class="btn btn-success">
@@ -26,6 +35,7 @@
                 <th>Título:</th>
                 <th>Ano:</th>
                 <th>Categoria:</th>
+                <th>Console:</th>
                 <th>Preço:</th>
                 <th>Quantidade:</th>
                 <th style="text-align: center;" colspan="2">Ação:</th>
@@ -39,6 +49,7 @@
                 <td>{{g.titulo}}</td>                
                 <td>{{g.ano}}</td>
                 <td>{{g.categoria}}</td>
+                <td>{{g.console.nome}}</td>
                 <td>{{g.preco}}</td>
                 <td>{{g.quantidade}}</td>
                 <td style="text-align: center; width: 130px;"><a class="btn btn-warning" href="{{url_for('gameEdit', id=g.id)}}">Editar</a></td>
