@@ -19,13 +19,13 @@ DB_NAME = 'thegames'
 app.config['DATABASE_NAME'] = DB_NAME
 
 # Passando o endereço do banco ao Flask
-app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql://root:@localhost/{DB_NAME}'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql://root@localhost/{DB_NAME}'
 
-# Chave secreta para as FLASH MESSAGES e tambem SESSÕES
-app.config['SECRET_KEY'] = 'fedsjhdiufds98u4ew98'
+# Chave secreta para as FLASH MESSAGES e também SESSÕES
+app.config['SECRET_KEY'] = 'thegamessecret'
 
-# Definido um tempo limite para sessão
-app.config['PERMANENT_SESSION_LIFETIME'] = 1800
+# Definindo um tempo limite para sessão
+app.config['PERMANENT_SESSION_LIFETIME'] = 1800 # (30 minutos)
 
 # Iniciando o servidor no localhost, porta 5000, modo de depuração ativado
 if __name__ == '__main__':
