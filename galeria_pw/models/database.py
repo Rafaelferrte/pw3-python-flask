@@ -12,3 +12,10 @@ class Usuario(db.Model):
         self.nome = nome
         self.email = email
         self.senha = senha
+        
+# Classe para imagens
+class Imagem(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    filename = db.Column(db.String(120), unique=True, nullable=False)
+    def __init__(self, filename):
+        self.filename = filename

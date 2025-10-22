@@ -235,3 +235,101 @@ img:hover {
     font-size: 1.1rem;
 }
 
+/* Galeria */
+.gallery-section {
+  text-align: center;
+  color: white;
+  margin-top: 40px;
+}
+
+.gallery-section h2 {
+  color: #ff1e00;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 5px #ff1e00;
+}
+
+.upload-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.upload-card {
+  background-color: #111;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255, 30, 0, 0.5);
+  width: 400px;
+}
+
+.upload-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.upload-card label {
+  font-weight: bold;
+}
+
+.form-control {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ff1e00;
+  background-color: #222;
+  color: white;
+}
+
+.btn-enviar {
+  background-color: #ff1e00;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-enviar:hover {
+  background-color: #ff3b1f;
+  transform: scale(1.05);
+}
+
+
+/* ======= GALERIA DE IMAGENS (UPLOADS) ======= */
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  justify-content: center;
+  margin-top: 40px;
+  padding: 0 20px;
+}
+
+.row .col-md-3 {
+  background-color: #151515;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.row .col-md-3:hover {
+  transform: translateY(-5px);
+}
+
+.row img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.row img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 30, 0, 0.6);
+}
