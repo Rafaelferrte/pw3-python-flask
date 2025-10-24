@@ -4,29 +4,6 @@ block content %}
   <h2>Bem-vindo à Galeria F1!</h2>
   <p>Explore fotos incríveis dos carros e corridas de Fórmula 1.</p>
 
-  <div class="cards">
-    <div class="card">
-      <img
-        src="{{ url_for('static', filename='images/f1_car1.jpg') }}"
-        alt="Carro F1 1"
-      />
-      <h3>Mercedes AMG</h3>
-    </div>
-    <div class="card">
-      <img
-        src="{{ url_for('static', filename='images/f1_car2.jpg') }}"
-        alt="Carro F1 2"
-      />
-      <h3>Red Bull Racing</h3>
-    </div>
-    <div class="card">
-      <img
-        src="{{ url_for('static', filename='images/f1_car3.jpg') }}"
-        alt="Carro F1 3"
-      />
-      <h3>Ferrari</h3>
-    </div>
-  </div>
 
   <div class="row">
     {% for img in imagens %}

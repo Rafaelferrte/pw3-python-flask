@@ -2,6 +2,7 @@
 from flask import Flask, render_template
 # Importando o PyMySQL
 import pymysql
+pymysql.install_as_MySQLdb()
 # Importando as rotas que estão nos controllers
 from controllers import routes
 # Importando os models

@@ -108,6 +108,6 @@ def init_app(app):
 
         return render_template('galeria.html', imagens=imagens)
     
-    @app.route('/sobre')
-    def sobre():
-        return render_template('index.html')
+    # @app.route('/sobre')
+    # def sobre():
+    #     return render_template('index.html')
